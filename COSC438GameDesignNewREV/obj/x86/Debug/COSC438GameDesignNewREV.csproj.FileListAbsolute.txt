@@ -176,11 +176,42 @@ C:\Users\Cod\Desktop\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows
 C:\Users\Cod\Desktop\COSC438GameDesignNewREV\COSC438GameDesignNewREV\obj\x86\Debug\COSC438GameDesignNewREV.csprojResolveAssemblyReference.cache
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\obj\x86\Debug\COSC438GameDesignNewREV.exe
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\obj\x86\Debug\COSC438GameDesignNewREV.pdb
+<<<<<<< HEAD
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\BGTile.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\Cracked.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\DownBot.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\DownTop.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\Ladder.png
+=======
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\B.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Battery.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\BGTile.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\Cracked.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Crane.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\CraneLvl.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\cursorDummyActive.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\cursorSprite.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\DangerZone.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\DarkBG.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Down.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\exit.jpg
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\FirstAid.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\FirstAidINBag.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\FlashLight.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\DownBot.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\DownTop.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GUIImages\HealthGreen.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GUIImages\HealthRed.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\I1.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\I1Bag.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\I2.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\I2BAG.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\interactionPrompt.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Inventory.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\Ladder.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\LoadingScreen.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\LoadScreen.jpg
+>>>>>>> origin/master
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\MiniGameCaveEventTileImages\SingleSpikeTile.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\MiniGameCaveEventTileImages\SplitSpikeTile.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\MiniGameTileImages\120OhmRed.png
@@ -205,12 +236,26 @@ C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesi
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\MiniGameTileImages\RedWire.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\MiniGameTileImages\X.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\MiniGameTileImages\YellowWire.png
+<<<<<<< HEAD
+=======
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\orb.jpg
+>>>>>>> origin/master
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\P1.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\P2.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\P3.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\P4.png
+<<<<<<< HEAD
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\PlatForm.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\ShadedTile.png
+=======
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Pause.jpg
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\PlatForm.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Resume.jpg
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\ShadedTile.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\start.jpg
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\StartScreen.png
+C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\Up.png
+>>>>>>> origin/master
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\TileClasses\SingleSpikeTile.cs
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\COSC438GameDesignNewREV.exe
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\COSC438GameDesignNewREV.pdb
@@ -330,6 +375,7 @@ C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNe
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GUIImages\InventoryLocationTile.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\ItemImages\MedKitTile.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\ItemImages\MiningAxe.png
+<<<<<<< HEAD
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GUIImages\PauseMenu.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GUIImages\StartMenu.gif
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GUIImages\LoadingScreen.gif
@@ -376,3 +422,5 @@ C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesi
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\SpikeTileUp.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\SpikeTileLeft.png
 C:\Users\Cod\Desktop\GAMEDESIGNRESOURCES\COSC438GameDesignNewREV\COSC438GameDesignNewREV\bin\Windows\Debug\Images\GeneralTileImages\SpikeTileRight.png
+=======
+>>>>>>> origin/master

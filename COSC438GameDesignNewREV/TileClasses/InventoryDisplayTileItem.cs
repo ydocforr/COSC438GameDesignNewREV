@@ -13,9 +13,14 @@ namespace COSC438GameDesignNewREV
         public InventoryDisplayTileItem(int key, Rectangle newBox, Game1 game)
             : base(game)
         {
+<<<<<<< HEAD
             this.active = true;
             this.itemKey = key;
             this.image = Texture2D.FromStream(game.GraphicsDevice, TitleContainer.OpenStream(@"Images/GeneralTileImages/SlipperyTile.png"));
+=======
+            this.itemKey = key;
+            this.image = Texture2D.FromStream(game.GraphicsDevice, TitleContainer.OpenStream(@"Images/GUIImages/InventoryLocationTile.png"));
+>>>>>>> origin/master
             this.Box = newBox;
         }
         public int ItemKey
@@ -31,6 +36,7 @@ namespace COSC438GameDesignNewREV
         }
         public void ActivateGUIDisplay()
         {
+<<<<<<< HEAD
             switch (this.itemKey)
             {
                 case 0:
@@ -59,6 +65,9 @@ namespace COSC438GameDesignNewREV
                         break;
                     }
             }        
+=======
+            this.image = Texture2D.FromStream(game.GraphicsDevice, TitleContainer.OpenStream(@"Images/ItemImages/MiningAxe.png"));            
+>>>>>>> origin/master
         }
         public void UNActivateGUIDisplay()
         {

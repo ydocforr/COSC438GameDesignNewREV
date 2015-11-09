@@ -13,13 +13,8 @@ namespace COSC438GameDesignNewREV
         //All Levels Standardized to 800W, 400H
         //Each grid will be 40x40 AKA 20Cols,12Rows
         private List<CollisionTile> collisonTile;
-        private List<SpikeTile> spikeTile;
-        private List<CraneTile> craneTile;
         private List<Tile> guiTiles;
-        private List<SlipperyTile> slipperyTiles;
-        private List<ResourceTiles> resourceTile;
         private List<BackGroundTile> backGroundTile;
-        private List<ScoreTiles> scoreTiles;
         private List<CaveTopTile> caveTopTile;
         private MapContainer getMap;
         private List<ItemTile> itemTile;
@@ -32,61 +27,6 @@ namespace COSC438GameDesignNewREV
         private List<ShadedTile> shadeTile;
         private Game1 gameObj;
         //Getters & Setters
-        public List<SlipperyTile> SlipperyTiles
-        {
-            get
-            {
-                return slipperyTiles;
-            }
-            set
-            {
-                slipperyTiles = value;
-            }
-        }
-        public List<SpikeTile> SpikeTile
-        {
-            get
-            {
-                return spikeTile;
-            }
-            set
-            {
-                spikeTile = value;
-            }
-        }
-        public List<CraneTile> CraneTile
-        {
-            get
-            {
-                return craneTile;
-            }
-            set
-            {
-                craneTile = value;
-            }
-        }
-        public List<ScoreTiles> ScoreTiles
-        {
-            get
-            {
-                return scoreTiles;
-            }
-            set
-            {
-                scoreTiles = value;
-            }
-        }
-        public List<ResourceTiles> ResourceTiles
-        {
-            get
-            {
-                return resourceTile;
-            }
-            set
-            {
-                resourceTile = value;
-            }
-        }            
         public MapContainer GetMap
         {
             get
@@ -245,11 +185,6 @@ namespace COSC438GameDesignNewREV
         {         
             getMap = new MapContainer(gameObj);           
             this.collisonTile = new List<CollisionTile>();
-            this.spikeTile = new List<SpikeTile>();
-            this.craneTile = new List<CraneTile>();
-            this.scoreTiles = new List<ScoreTiles>();
-            this.slipperyTiles = new List<SlipperyTile>();
-            this.resourceTile = new List<ResourceTiles>();
             this.guiTiles = new List<Tile>();
             this.caveTopTile = new List<CaveTopTile>();
             this.backGroundTile = new List<BackGroundTile>();
@@ -317,7 +252,8 @@ namespace COSC438GameDesignNewREV
                     {
                         populateGrid(getMap.shaderMap);
                         break;
-                    }                   
+                    }
+                   
             }
         }
         //Reads matrix and creates appropriate tiles.
@@ -332,233 +268,40 @@ namespace COSC438GameDesignNewREV
                     {
                         //NOTE: Adding a background tile underneath every other tile type is not an ideal solution, but since some tiles are going to be removed later on
                         //its simpler to just have a background tile incase, since background tiles are always drawn first, this isnt noticable in any way.
-                        case -38:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                slipperyTiles.Add(new SlipperyTile(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -37:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                spikeTile.Add(new SpikeTile(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -36:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                spikeTile.Add(new SpikeTile(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -35:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                spikeTile.Add(new SpikeTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -34:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new PromptTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -33:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(8, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -32:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(7, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -31:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(6, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -30:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(5, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -29:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -28:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -27:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -26:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                craneTile.Add(new CraneTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -25:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(5, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -24:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -23:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -22:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -21:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -20:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -19:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new InfoTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -18:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ResourceTiles(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -17:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ResourceTiles(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -16:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ResourceTiles(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));                         
-                                break;
-                            }
-                        case -15:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ScoreTiles(5, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new ScoreTiles(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -14:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ScoreTiles(6, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new ScoreTiles(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -13:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ScoreTiles(7, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new ScoreTiles(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
-                        case -12:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                //These are health bar ties, they occupy the same grid space, one is just not always visible depending on HP
-                                guiTiles.Add(new ScoreTiles(8, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new ScoreTiles(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                break;
-                            }
                         case -11:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new InventoryDisplayTileItem(5, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                guiTiles.Add(new InventoryDisplayTileItem(6, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -10:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new InventoryDisplayTileItem(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                guiTiles.Add(new InventoryDisplayTileItem(5, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -9:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new InventoryDisplayTileItem(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                guiTiles.Add(new InventoryDisplayTileItem(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -8:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new InventoryDisplayTileItem(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                guiTiles.Add(new InventoryDisplayTileItem(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -7:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new InventoryDisplayTileItem(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                guiTiles.Add(new InventoryDisplayTileItem(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -6:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                guiTiles.Add(new InventoryDisplayTileItem(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                guiTiles.Add(new InventoryDisplayTileItem(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -5:
@@ -612,49 +355,42 @@ namespace COSC438GameDesignNewREV
                             {
                                 //Mining Axe
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                itemTile.Add(new ItemTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item1,  gameObj));
+                                itemTile.Add(new ItemTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item1,  gameObj));
                                 break;
                             }
                         case 4:
                             {
                                 //FlashLight
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                itemTile.Add(new ItemTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item2, gameObj));
+                                itemTile.Add(new ItemTile(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item2, gameObj));
                                 break;
                             }
                         case 7:
                             {
                                 //Batteries
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                itemTile.Add(new ItemTile(2, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item3,  gameObj));
+                                itemTile.Add(new ItemTile(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item3,  gameObj));
                                 break;
                             }
                         case 8:
                             {
                                 //MedKit
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                itemTile.Add(new ItemTile(3, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item4,  gameObj));
+                                itemTile.Add(new ItemTile(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item4,  gameObj));
                                 break;
                             }
                         case 9:
                             {
-                                //Engineer ToolKit
+                                //Battery
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                itemTile.Add(new ItemTile(4, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item5,  gameObj));
-                                break;
-                            }
-                        //Drop Tiles For Scoring
-                        case -79:
-                            {
-                                backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                ohmDropTile.Add(new OhmDropTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                itemTile.Add(new ItemTile(9, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), getMap.Item5,  gameObj));
                                 break;
                             }
                         //Drop Tiles For Scoring
                         case -80:
                             {
                                 backGroundTile.Add(new BackGroundTile(0, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
-                                slipperyTiles.Add(new SlipperyTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
+                                ohmDropTile.Add(new OhmDropTile(1, new Rectangle(x * SIZE, y * SIZE, SIZE, SIZE), gameObj));
                                 break;
                             }
                         case -81:

@@ -12,7 +12,11 @@ namespace COSC438GameDesignNewREV
         public DownTop(int key, Rectangle newBox, Game1 game)
             : base(game)
         {
+<<<<<<< HEAD
             this.active = true;
+=======
+            this.tileType = "X";
+>>>>>>> origin/master
             this.image = Texture2D.FromStream(game.GraphicsDevice, TitleContainer.OpenStream(@"Images/GeneralTileImages/DownTop.png"));
             this.Box = newBox;
         }

@@ -145,6 +145,7 @@ namespace COSC438GameDesignNewREV
         }
         public void replay()
         {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             restart = true;
             Initialize();
             LoadContent();
@@ -180,6 +181,20 @@ namespace COSC438GameDesignNewREV
             }
             return GameState.LVL1;
         }
+=======
+            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
+            orb = Texture2D.FromStream(GraphicsDevice, TitleContainer.OpenStream(@"Images/orb.jpg"));
+            orbPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - (oWidth / 2), (GraphicsDevice.Viewport.Height / 2) - (oHeight / 2));
+            pButton = Texture2D.FromStream(GraphicsDevice, TitleContainer.OpenStream(@"Images/Pause.jpg"));
+            rButton = Texture2D.FromStream(GraphicsDevice, TitleContainer.OpenStream(@"Images/Resume.jpg"));
+            rButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - (rButton.Width / 2), (GraphicsDevice.Viewport.Height / 2) - (rButton.Height / 2));
+            interactionPrompt = Texture2D.FromStream(GraphicsDevice, TitleContainer.OpenStream(@"Images/interactionPrompt.png"));
+            Thread.Sleep(1000);          
+            gameState = GameState.Playing;
+            isLoading = false;
+        }
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
         public void MouseClicked(int x, int y)
         {           
             Rectangle mouseClickBox = new Rectangle(x, y, 10, 10);
@@ -401,6 +416,7 @@ namespace COSC438GameDesignNewREV
             set
             {
                 grid = value;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             }
         }
         public GridLayout[] GenMaps
@@ -408,6 +424,8 @@ namespace COSC438GameDesignNewREV
             get
             {
                 return grid;
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             }
         }
         public GridLayout[] ShadeGrid
@@ -419,6 +437,7 @@ namespace COSC438GameDesignNewREV
             set
             {
                 shadeGrid = value;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             }
         }
         public Physics PhysicsEngine
@@ -426,6 +445,8 @@ namespace COSC438GameDesignNewREV
             get
             {
                 return physicsEngine;
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             }
         }
         public List<ItemTile> InventoryContainer
@@ -464,10 +485,16 @@ namespace COSC438GameDesignNewREV
         }
         //TODO: Determine if we should generated levels on initialization or LoadContent
         protected override void Initialize()
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
         {                  
             //Bounding Box Of GUI Buttons       
             sButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 150);
             rButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 150);
+=======
+        {          
+            LoadGame();           
+            sButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 200);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             eButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 250);
             controlButtonPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 200);
             //Bounding Box Of GUI Buttons
@@ -499,6 +526,10 @@ namespace COSC438GameDesignNewREV
                 grid[x].generateGrid(x);
                 foreach (ItemTile tile in grid[x].ItemTile)
                 {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
+=======
+                    Console.WriteLine(tile.ItemKey);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
                     inventoryContainer.Add(tile);
                 }           
                 shadeGrid[x].generateGrid(-199);
@@ -586,11 +617,18 @@ namespace COSC438GameDesignNewREV
             spriteBatch.Begin();
             if(gameState == GameState.StartMenu)
             {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
                 spriteBatch.Draw(startScreen, new Rectangle(0,0,graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight),Color.White);            
             }
             if(gameState == GameState.Loading && physicsEngine.ACTIVELEVELFunc == 6)
             {
                 spriteBatch.Draw(loadScreen, new Vector2((GraphicsDevice.Viewport.Width / 2) - (loadScreen.Width / 2), (GraphicsDevice.Viewport.Height / 2) - (loadScreen.Height / 2)), Color.White);
+=======
+                spriteBatch.Draw(startScreen, new Rectangle(0,0,graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight),Color.White);
+                spriteBatch.Draw(sButton, sButtonPos, Color.White);
+                spriteBatch.Draw(eButton, eButtonPos, Color.White);
+                
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             }
             if (gameState == GameState.Loading)
             {
@@ -689,10 +727,13 @@ namespace COSC438GameDesignNewREV
             {
                 spriteBatch.Draw(tile.Image, tile.Box, Color.White);
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             foreach (CraneTile tile in grid[physicsEngine.ACTIVELEVELFunc].CraneTile)
             {
                 spriteBatch.Draw(tile.Image, tile.Box, Color.White);
             }
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             foreach (CollisionTile tile in grid[physicsEngine.ACTIVELEVELFunc].CollisionTile)
             {
                 spriteBatch.Draw(tile.Image, tile.Box, Color.White);
@@ -733,11 +774,15 @@ namespace COSC438GameDesignNewREV
             {
                 spriteBatch.Draw(tile.Image, tile.Box, Color.White);
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             /*
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             if (physicsEngine.EventStates[1] == true && physicsEngine.ACTIVELEVELFunc >= 0 && physicsEngine.ACTIVELEVELFunc <= 5)
             {
                 DrawShaders();
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             */
             foreach (SpikeTile tile in grid[physicsEngine.ACTIVELEVELFunc].SpikeTile)
             {
@@ -749,6 +794,11 @@ namespace COSC438GameDesignNewREV
                 {
                     spriteBatch.Draw(tile.Image, tile.Box, Color.White);
                 }
+=======
+            foreach (Tile tile in grid[physicsEngine.ACTIVELEVELFunc].GuiTiles)
+            {
+                spriteBatch.Draw(tile.Image, tile.Box, Color.White);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             }
         }
         public void DrawShaders()
@@ -784,6 +834,33 @@ namespace COSC438GameDesignNewREV
                 }
             }
         }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
+        public bool checkInventoryItem(int itemNum)
+        {
+            foreach(ItemTile tile in inventoryContainer)
+=======
+        /*
+        If we currently have a item in our bag, we should draw that item to the user when requestion      
+        public void loadInventory()
+        {   
+            spriteBatch.Draw(inventory, new Rectangle(graphics.PreferredBackBufferWidth - inventory.Width, graphics.PreferredBackBufferHeight - inventory.Height, inventory.Width, inventory.Height), Color.White);
+            for (int x = 0; x < 10; x++)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
+            {
+                if(tile.ItemKey.Equals(itemNum) && tile.Collected && !tile.Consumed)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
+        public void overloadedDraw(List<SpikeTile> temp)
+        {
+=======
+        /*
+        Late in the game, generic draw seemed relevant
+        */
         public bool checkInventoryItem(int itemNum)
         {
             foreach(ItemTile tile in inventoryContainer)
@@ -797,6 +874,7 @@ namespace COSC438GameDesignNewREV
         }
         public void overloadedDraw(List<SpikeTile> temp)
         {
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Game1.cs
             for(int x = 0; x < temp.Count; x++)
             {                          
                 spriteBatch.Draw(temp[x].Image, temp[x].Box, Color.White);

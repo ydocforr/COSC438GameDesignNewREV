@@ -11,7 +11,11 @@ namespace COSC438GameDesignNewREV
 {   
     public class Tile
     {
+<<<<<<< HEAD:COSC438GameDesignNewREV/TileClasses/Tile.cs
         protected int pixelShow;
+=======
+        protected String tileType;
+>>>>>>> origin/master:COSC438GameDesignNewREV/TileClasses/Tile.cs
         protected int colour;
         protected Game1 game;
         protected Texture2D image;
@@ -28,6 +32,7 @@ namespace COSC438GameDesignNewREV
                 colour = value;
             }
         }
+<<<<<<< HEAD:COSC438GameDesignNewREV/TileClasses/Tile.cs
         public bool Active
         {
             get
@@ -48,6 +53,17 @@ namespace COSC438GameDesignNewREV
             set
             {
                 pixelShow = value;
+=======
+        public String TileType
+        {
+            get
+            {
+                return tileType;
+            }
+            set
+            {
+                tileType = value;
+>>>>>>> origin/master:COSC438GameDesignNewREV/TileClasses/Tile.cs
             }
         }
         public Tile(Game1 game)

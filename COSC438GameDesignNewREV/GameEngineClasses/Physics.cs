@@ -30,6 +30,7 @@ namespace COSC438GameDesignNewREV
         Up,
         Down
     }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
     public enum ActivePlayer
     {
         Miner,
@@ -37,6 +38,8 @@ namespace COSC438GameDesignNewREV
         Medic,
         Foreman
     }
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
     public class Physics 
     {
         private bool[] eventStates;
@@ -67,9 +70,13 @@ namespace COSC438GameDesignNewREV
         private int healthOffset = 0;
         private int prevHealthOffset = 0;
         //MonoStuff & Objects    
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         private KeyboardState prevKEYState;
         private CharDirection characterFacing;
         private ActivePlayer activePlayer;
+=======
+        private CharDirection characterFacing;
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         private Game1 gameObj;       
         private GridLayout[] genMaps;
         private MouseState checkMouseState;
@@ -81,12 +88,17 @@ namespace COSC438GameDesignNewREV
         private GameTime gameTime;
         private List<Rectangle> aniBoxes;
         private Random cordGen;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         List<SplitSpikeTile> splitSpikes1;
         List<SplitSpikeTile> splitSpikes2;
         List<SplitSpikeTile> splitSpikes3;
         List<SplitSpikeTile> splitSpikes4;
         List<SplitSpikeTile> splitSpikes5;
         List<SplitSpikeTile> splitSpikes6;
+=======
+        private Texture2D axeAniBoxImage;
+        private List<SplitSpikeTile> splitSpikes;
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         //Getters/Setters  
         public bool FlashLightView
         {
@@ -127,7 +139,22 @@ namespace COSC438GameDesignNewREV
             {
                 eventStates = value;
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         }       
+=======
+        }
+        public List<SplitSpikeTile> SplitSpikes
+        {
+            get
+            {
+                return splitSpikes;
+            }
+            set
+            {
+                splitSpikes = value;
+            }
+        }
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         public List<Rectangle> AniBoxes
         {
             get
@@ -173,7 +200,10 @@ namespace COSC438GameDesignNewREV
         public Physics(Game1 gameObj, int characterNum, SpriteBatch sprites, GraphicsDeviceManager graphics)
         {
             characterFacing = CharDirection.Right;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             activePlayer = ActivePlayer.Miner;
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             ACTIVELEVEL = 1;
             this.gameObj = gameObj;
             this.characterNum = characterNum;
@@ -195,6 +225,7 @@ namespace COSC438GameDesignNewREV
             //Process keyboard state
             CheckKeyBoardInput();
             if (!SweepCollisionVertical())
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             {
                 gameObj.currPlayerPositionFunc.Y += (int)velocity.Y;
                
@@ -230,9 +261,13 @@ namespace COSC438GameDesignNewREV
         {
             Rectangle newBox;
             if (velocity.Y < 10)
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             {
-                velocity.Y += .2f;
+                gameObj.currPlayerPositionFunc.Y += (int)velocity.Y;
+               
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             foreach(ItemTile tile in genMaps[ACTIVELEVEL].ItemTile)
             {
                 //If the tile is in a current motion state then we need to apply gravity to the tile
@@ -255,6 +290,61 @@ namespace COSC438GameDesignNewREV
                     }
                     if (tile.Box.Y >= graphics.PreferredBackBufferHeight)
                     {
+                        newBox = new Rectangle((int)(tile.Box.X + tile.XVelocity), graphics.PreferredBackBufferHeight - 40, 40, 40);
+                        tile.XVelocity = 0;
+                        tile.YVelocity = 0;
+                        tile.MotionState = false;
+                        tile.Box = newBox;
+                    }                                                                                                     
+                }
+            }
+=======
+            if(!SweepCollisionHorizontal())
+            {
+                gameObj.currPlayerPositionFunc.X += (int)velocity.X;
+            }
+            //Ran off bottom of screen
+            if (gameObj.currPlayerPositionFunc.Y >= graphics.PreferredBackBufferHeight)
+            {
+                gameObj.currPlayerPositionFunc.Y = graphics.PreferredBackBufferHeight;
+                jumpState = false;
+                velocity.Y = 0;
+            }
+            applyGravity();
+            clock(1);
+            adjustHealth();
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
+        }
+        public void applyGravity()
+        {
+            Rectangle newBox;
+            if (velocity.Y < 10)
+            {
+                velocity.Y += .2f;
+            }
+            foreach(ItemTile tile in genMaps[ACTIVELEVEL].ItemTile)
+            {
+                //If the tile is in a current motion state then we need to apply gravity to the tile
+                if(tile.MotionState)
+                {
+                    if (tile.YVelocity < 3)
+                    {
+                        tile.YVelocity += .2f;
+                    }
+                    tile.YVelocity += 2;
+                    if (tile.XVelocity > 0)
+                    {
+                        tile.XVelocity -= .01f;
+                    }
+                    if(!ItemSweepCollision(tile))
+                    {
+                        Console.WriteLine("NO COL:");
+                        newBox = new Rectangle((int)(tile.Box.X + tile.XVelocity), (int)(tile.Box.Y + tile.YVelocity), 40, 40);
+                        tile.Box = newBox;
+                    }
+                    if (tile.Box.Y >= graphics.PreferredBackBufferHeight)
+                    {
+                        Console.WriteLine("Fell Off Bot");
                         newBox = new Rectangle((int)(tile.Box.X + tile.XVelocity), graphics.PreferredBackBufferHeight - 40, 40, 40);
                         tile.XVelocity = 0;
                         tile.YVelocity = 0;
@@ -289,6 +379,7 @@ namespace COSC438GameDesignNewREV
         */
         public void adjustHealth()
         {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             int maxIdx = 0;           
             for (int y = 0; y < genMaps[ACTIVELEVEL].GuiTiles.Count; y++)
             {              
@@ -310,6 +401,10 @@ namespace COSC438GameDesignNewREV
             ((ScoreTiles)genMaps[ACTIVELEVEL].GuiTiles[maxIdx]).adjustHealth(healthOffset);
             healthOffset = 0;
         }     
+=======
+           // gameObj.STATICSPRITESFunc[99] = Tuple.Create(99, Texture2D.FromStream(gameObj.GraphicsDevice, TitleContainer.OpenStream(@"Images/GUIImages/HealthRed.png")), new Rectangle(100 - healthOffset, 0, 0 +  healthOffset, 20));
+        }
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         //Load new map using map matrix/grid
         public void loadLevel(int moveState)
         {
@@ -586,7 +681,7 @@ namespace COSC438GameDesignNewREV
         //TODO Fix Bug's in JUMP
         public void Jump()
         {           
-                if (checKeyBoardState.IsKeyDown(Keys.Space) && jumpState == false)
+                if ((checKeyBoardState.IsKeyDown(Keys.Space) || (checKeyBoardState.IsKeyDown(Keys.W)))  && jumpState == false )
                 {
                     gameObj.currPlayerPositionFunc.Y -= 10;
                     velocity.Y = -10f;
@@ -633,6 +728,7 @@ namespace COSC438GameDesignNewREV
             else if (checKeyBoardState.IsKeyDown(Keys.D))
             {
                 characterFacing = CharDirection.Right;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (ACTIVELEVEL == 6 && activePlayer == ActivePlayer.Miner)
                 {
                     velocity.X = (float)((gameTime.ElapsedGameTime.TotalMilliseconds / 5) * 1.25);
@@ -641,11 +737,15 @@ namespace COSC438GameDesignNewREV
                 {
                     velocity.X = (float)((gameTime.ElapsedGameTime.TotalMilliseconds / 5));
                 }
+=======
+                velocity.X = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 5;
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }
             //Left Movement Controlled by A
             else if (checKeyBoardState.IsKeyDown(Keys.A))
             {
                 characterFacing = CharDirection.Left;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (ACTIVELEVEL == 6 && activePlayer == ActivePlayer.Miner)
                 {
                     velocity.X = -(float)((gameTime.ElapsedGameTime.TotalMilliseconds / 5) * 1.25);
@@ -655,6 +755,10 @@ namespace COSC438GameDesignNewREV
                     velocity.X = -(float)((gameTime.ElapsedGameTime.TotalMilliseconds / 5));
                 }
             }           
+=======
+                velocity.X = -(float)gameTime.ElapsedGameTime.TotalMilliseconds / 5;
+            }
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             else
             {
                 if (!iceCollision(gameObj.PlayerBox))
@@ -705,7 +809,11 @@ namespace COSC438GameDesignNewREV
                 }
             }
             //Check if we have the mining age euipt
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             if (checKeyBoardState.IsKeyDown(Keys.T) && gameObj.checkInventoryItem(0))
+=======
+            if (checKeyBoardState.IsKeyDown(Keys.T) && gameObj.checkInventoryItem(1))
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             {
                 if (TDOWN)
                 {
@@ -780,6 +888,7 @@ namespace COSC438GameDesignNewREV
         //TODO:: INCREASE PRECISION OF WEAK POINT
         public void checkTrajectoryEvent1()
         {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             Rectangle intersectPoint1 = new Rectangle(160, 120, 40, 40);
             Rectangle intersectPoint2 = new Rectangle(200, 160, 40, 40);
             Rectangle intersectPoint3 = new Rectangle(240, 200, 40, 40);
@@ -787,10 +896,18 @@ namespace COSC438GameDesignNewREV
             for (int y = 0; y < genMaps[ACTIVELEVEL].ItemTile.Count; y++)
             {
                 if (genMaps[ACTIVELEVEL].ItemTile[y].ItemKey == 0)
+=======
+            Rectangle intersect1 = new Rectangle(240, 200 - 40, 40, 40);
+            int containerIdx = 0;
+            for (int y = 0; y < genMaps[ACTIVELEVEL].ItemTile.Count; y++)
+            {
+                if (genMaps[ACTIVELEVEL].ItemTile[y].ItemKey == 1)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {
                     containerIdx = y;
                 }
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             Console.WriteLine(genMaps[ACTIVELEVEL].ItemTile[containerIdx].Box.X + " Box xCord");
             Console.WriteLine(genMaps[ACTIVELEVEL].ItemTile[containerIdx].Box.Y + " Box YCord");
             if (genMaps[ACTIVELEVEL].ItemTile[containerIdx].Box.Intersects(intersectPoint1) || genMaps[ACTIVELEVEL].ItemTile[containerIdx].Box.Intersects(intersectPoint2) || genMaps[ACTIVELEVEL].ItemTile[containerIdx].Box.Intersects(intersectPoint3))
@@ -800,6 +917,14 @@ namespace COSC438GameDesignNewREV
                     ACTIVELEVEL = 6;
                     eventStates[1] = true;
                     gameObj.GetGameState = GameState.DZMenu;
+=======
+            if (genMaps[ACTIVELEVEL].ItemTile[containerIdx].Box.Intersects(intersect1))
+                {
+                    Console.WriteLine("testingcoll");             
+                    ACTIVELEVEL = 6;
+                    eventStates[1] = true;
+                    aniBoxes.Clear();
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                     dangerZoneEvent();
                 }
                    
@@ -897,18 +1022,35 @@ namespace COSC438GameDesignNewREV
         }
         public void dangerZoneSimulation()
         {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             if (splitSpikes4.Count == 0)
+=======
+            if (splitSpikes.Count == 0)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             {
                 eventStates[1] = true;
                 ACTIVELEVEL = 1;
                 loadLevel(1);
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             //Wave 1
             foreach (SplitSpikeTile spike in splitSpikes1)
             {
                 spike.Falling = true;
             }
             foreach (SplitSpikeTile spike in splitSpikes1)
+=======
+            cordGen = new Random();
+            int temp = cordGen.Next(1000);
+            int count = 0;
+            foreach (SplitSpikeTile spike in splitSpikes)
+            {
+                    spike.Falling = true;
+                count++;
+                Console.WriteLine(count);
+            }
+            foreach (SplitSpikeTile spike in splitSpikes)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             {
                 Rectangle newLoc2 = new Rectangle(spike.Box.X + spike.XVelocity, spike.Box.Y + spike.YVelocity, spike.Box.Width, spike.Box.Height);
                 sprites.Draw(spike.Image, spike.Box, Color.White);
@@ -916,6 +1058,7 @@ namespace COSC438GameDesignNewREV
                 {
                     spike.Box = newLoc2;
                 }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }        
             DangerZoneCollision(new Rectangle(gameObj.currPlayerPositionFunc.X, gameObj.currPlayerPositionFunc.Y - yOffset, gameObj.activePlayerFunc.Width, gameObj.activePlayerFunc.Height),splitSpikes1);
             if(splitSpikes1.Count > 0)
@@ -971,11 +1114,16 @@ namespace COSC438GameDesignNewREV
                 }
             }
             DangerZoneCollision(new Rectangle(gameObj.currPlayerPositionFunc.X, gameObj.currPlayerPositionFunc.Y - yOffset, gameObj.activePlayerFunc.Width, gameObj.activePlayerFunc.Height), splitSpikes4);
+=======
+            }                  
+            DangerZoneCollision(new Rectangle(gameObj.currPlayerPositionFunc.X, gameObj.currPlayerPositionFunc.Y - yOffset, gameObj.activePlayerFunc.Width, gameObj.activePlayerFunc.Height));
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         }  
         public void dangerZoneEvent()
         {
             Console.WriteLine("Test");
             cordGen = new Random();
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             int tempX;
             int push = 0;
             int tempW = 40;
@@ -1056,6 +1204,69 @@ namespace COSC438GameDesignNewREV
                 }
             }         
         }                    
+=======
+            Console.WriteLine("Test");     
+            splitSpikes = new List<SplitSpikeTile>();
+            for (int x  = 0; x < 100; x++)
+            {
+                if (cordGen.Next(20) < 10)
+                {
+                    SplitSpikeTile tempVar = new SplitSpikeTile(x, new Rectangle(cordGen.Next(0, graphics.PreferredBackBufferWidth), 0, 20, 40), gameObj);
+                    tempVar.XVelocity = 0;
+                    tempVar.YVelocity = 4;
+                    splitSpikes.Add(tempVar);
+                }
+                else
+                {
+                    SplitSpikeTile tempVar = new SplitSpikeTile(x, new Rectangle(cordGen.Next(0, graphics.PreferredBackBufferWidth), 0, 20, 40), gameObj);
+                    if (x % 2 == 0)
+                    {
+                        tempVar.XVelocity = 1;
+                        tempVar.YVelocity = 4;
+                    }
+                    else
+                    {
+                        tempVar.XVelocity = -1;
+                        tempVar.YVelocity = 4;
+                    }
+                    splitSpikes.Add(tempVar);
+                }
+            }       
+        }
+        public bool DangerZoneCollision( Rectangle PlayerLoc)
+        {
+            //Collision for platform tiles require movement from top collisions           
+                foreach (SplitSpikeTile tile2 in splitSpikes.ToList())
+                {
+                    foreach (PlatFormTile ptile in genMaps[ACTIVELEVEL].PlatFormTile.ToList())
+                    {                       
+                        //If the platform box was currently shielding the player, remove that platform box as well as the spike tile.
+                        //This forces the player to not stand under one box for the entire simulation
+                        if (tile2.Box.Intersects(ptile.Box) && (gameObj.currPlayerPositionFunc.X >= ptile.Box.Left - 2 && gameObj.currPlayerPositionFunc.X <= ptile.Box.Right + 2))
+                        {
+                            genMaps[ACTIVELEVEL].PlatFormTile.Remove(ptile);
+                            splitSpikes.Remove(tile2);
+                        }
+                        //Destroy spike tile on impact with playform box
+                        if (tile2.Box.Intersects(ptile.Box))
+                        {
+                            splitSpikes.Remove(tile2);
+                        }
+                    }                  
+                    if (tile2.Box.Intersects(PlayerLoc))
+                    {
+                        healthOffset += 20;
+                        splitSpikes.Remove(tile2);
+                    }                 
+                    if(tile2.Box.Y > graphics.PreferredBackBufferHeight)
+                    {
+                        splitSpikes.Remove(tile2);
+                    }              
+            }
+            Console.WriteLine(splitSpikes.Count);
+            return false;
+         }              
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
         public void throwItem()
         {
             Rectangle newBox;
@@ -1063,7 +1274,11 @@ namespace COSC438GameDesignNewREV
             int containerIdx = 0;
             for(int y  = 0; y < genMaps[ACTIVELEVEL].ItemTile.Count;y++)
             {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if(genMaps[ACTIVELEVEL].ItemTile[y].ItemKey == 0)
+=======
+                if(genMaps[ACTIVELEVEL].ItemTile[y].ItemKey == 1)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {
                     containerIdx = y;
                 }
@@ -1107,20 +1322,31 @@ namespace COSC438GameDesignNewREV
             for (int x = 0; x < gameObj.InventoryContainer.Count; x++)
             {
                 if (gameObj.InventoryContainer[x].Collected)
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {                  
+=======
+                {
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                     activeIdx.Add(gameObj.InventoryContainer[x].ItemKey);
                 }                                                                            
             }
             for (int y = 0; y < genMaps[ACTIVELEVEL].GuiTiles.Count; y++)
             {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 tempFlag = false;
+=======
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 //Make sure its a gui display tile
                 if (genMaps[ACTIVELEVEL].GuiTiles[y].GetType() == typeof(InventoryDisplayTileItem))
                 {
                     //Check the valid index's for collected tiles
                     for (int x = 0; x < activeIdx.Count; x++)
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                     {
                         int t = ((InventoryDisplayTileItem)genMaps[ACTIVELEVEL].GuiTiles[y]).ItemKey;
+=======
+                    {            
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                         //Check all collected items key's     
                         if (((InventoryDisplayTileItem)genMaps[ACTIVELEVEL].GuiTiles[y]).ItemKey == activeIdx[x])
                         {
@@ -1153,22 +1379,38 @@ namespace COSC438GameDesignNewREV
             if (checKeyBoardState.IsKeyDown(Keys.D1) && !itemEquiptCheck())
             {
                 //Console.WriteLine("Mining Axe Equipt");
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 equiptItem(0);
+=======
+                equiptItem(1);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }
             if (checKeyBoardState.IsKeyDown(Keys.D2) && !itemEquiptCheck())
             {
                 //Console.WriteLine("FlashLight Equipt");
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 equiptItem(1);
+=======
+                equiptItem(2);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }
             if (checKeyBoardState.IsKeyDown(Keys.D3) && !itemEquiptCheck() && gameObj.InventoryContainer[2].Collected)
             {
                // Console.WriteLine("Batteries Loaded");
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 equiptItem(2);
+=======
+                equiptItem(3);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }
             if (checKeyBoardState.IsKeyDown(Keys.D4) && !itemEquiptCheck())
             {
                // Console.WriteLine("MedKit consumed");
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 equiptItem(3);
+=======
+                equiptItem(4);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }          
         }
         //Triggered by Keypress U, simply unequipts the equipted item and returns it to inventory
@@ -1187,7 +1429,11 @@ namespace COSC438GameDesignNewREV
         {
             switch(itemVal)
             {                
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 case 0:
+=======
+                case 1:
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                     {
                         if (gameObj.InventoryContainer[0].Collected && !gameObj.InventoryContainer[0].Consumed)
                         {
@@ -1197,6 +1443,7 @@ namespace COSC438GameDesignNewREV
                         }
                         break;
                     }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 case 1:
                     {
                         if (gameObj.InventoryContainer[1].Collected)
@@ -1221,6 +1468,32 @@ namespace COSC438GameDesignNewREV
                         {
                             Console.WriteLine("MedKit Equipt");
                             gameObj.InventoryContainer[3].Equipt = true;
+=======
+                case 2:
+                    {
+                        if (gameObj.InventoryContainer[2].Collected)
+                        {
+                            Console.WriteLine("Flash Light Equipt");
+                            gameObj.InventoryContainer[2].Equipt = true;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        if (gameObj.InventoryContainer[3].Collected && !gameObj.InventoryContainer[3].Consumed)
+                        {
+                            Console.WriteLine("Batteries Consumed");
+                            gameObj.InventoryContainer[3].Consumed = true;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        if (gameObj.InventoryContainer[4].Collected && !gameObj.InventoryContainer[4].Consumed)
+                        {
+                            Console.WriteLine("MedKit Equipt");
+                            gameObj.InventoryContainer[4].Equipt = true;
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                         }
                         break;
                     }
@@ -1251,6 +1524,7 @@ namespace COSC438GameDesignNewREV
          */
         public bool ItemSweepCollision(ItemTile itemCheck)
         {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             int checkX = itemCheck.Box.X + (int)itemCheck.XVelocity;
             int checkY = itemCheck.Box.Y + (int)itemCheck.YVelocity;
             ItemTile checkItemSweep = new ItemTile(0, new Rectangle(checkX - (int) itemCheck.XVelocity / 4, checkY -(int) itemCheck.YVelocity / 4, 20, 20), genMaps[ACTIVELEVEL].GetMap.Item1, gameObj);
@@ -1268,20 +1542,38 @@ namespace COSC438GameDesignNewREV
                 return true;
             }
             if (ItemCollisionDetection(checkItemSweep3))
+=======
+            //Need to implement sweeping detection to fix collision graph offsets                       
+            if (ItemCollisionDetection(itemCheck))
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             {
                 itemCheck.MotionState = false;
                 return true;
             }
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
+=======
+            
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             return false;
         }
         public bool ItemCollisionDetection(ItemTile itemCheck)
         {
             Rectangle newBox;
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
+=======
+            int checkX = itemCheck.Box.X + (int)itemCheck.XVelocity;
+            int checkY = itemCheck.Box.Y + (int)itemCheck.YVelocity;
+            ItemTile checkItemSweep = new ItemTile(0, new Rectangle(checkX, checkY, 20, 20), genMaps[ACTIVELEVEL].GetMap.Item1, gameObj);
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             //Collision for platform tiles require movement from top collisions
             foreach (PlatFormTile tile in genMaps[ACTIVELEVEL].PlatFormTile)
             {
                 //Top
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (itemCheck.Box.Bottom >= tile.Box.Top && itemCheck.Box.Bottom <= tile.Box.Top  && itemCheck.Box.Right >= tile.Box.Left  && itemCheck.Box.Left <= tile.Box.Right )
+=======
+                if (checkItemSweep.Box.Bottom >= tile.Box.Top && checkItemSweep.Box.Bottom <= tile.Box.Top  && checkItemSweep.Box.Right >= tile.Box.Left  && checkItemSweep.Box.Left <= tile.Box.Right )
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {
                     Console.WriteLine("Top Item Collision");
                     newBox = new Rectangle(itemCheck.Box.X, tile.Box.Top - 1, 40, 40);
@@ -1289,14 +1581,22 @@ namespace COSC438GameDesignNewREV
                     return true;
                 }   
                 //Bottom
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (itemCheck.Box.Top <= tile.Box.Bottom - yOffset && itemCheck.Box.Top >= tile.Box.Bottom  && itemCheck.Box.Right >= tile.Box.Left&& itemCheck.Box.Left <= tile.Box.Right)
+=======
+                if (checkItemSweep.Box.Top <= tile.Box.Bottom - yOffset && checkItemSweep.Box.Top >= tile.Box.Bottom  && checkItemSweep.Box.Right >= tile.Box.Left&& checkItemSweep.Box.Left <= tile.Box.Right)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {
                     Console.WriteLine("Bot Item Collision");
                     newBox = new Rectangle(itemCheck.Box.X, tile.Box.Bottom + itemCheck.Box.Height, 40, 40);
                     itemCheck.Box = newBox;
                     return true;
                 }                                              
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (itemCheck.Box.Left >= tile.Box.Left && itemCheck.Box.Left <= tile.Box.Right && itemCheck.Box.Top <= tile.Box.Bottom  && itemCheck.Box.Bottom >= tile.Box.Top)
+=======
+                if (checkItemSweep.Box.Left >= tile.Box.Left && checkItemSweep.Box.Left <= tile.Box.Right && checkItemSweep.Box.Top <= tile.Box.Bottom  && checkItemSweep.Box.Bottom >= tile.Box.Top)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {                  
                     newBox = new Rectangle(tile.Box.Right + 2, itemCheck.Box.Y, 40, 40);
                     itemCheck.Box = newBox;               
@@ -1304,13 +1604,18 @@ namespace COSC438GameDesignNewREV
                     return true;
                 }
                 //Left side collisions with offsets
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (itemCheck.Box.Right <= tile.Box.Right && itemCheck.Box.Right >= tile.Box.Left && itemCheck.Box.Top <= tile.Box.Bottom && itemCheck.Box.Bottom >= tile.Box.Top)
+=======
+                if (checkItemSweep.Box.Right <= tile.Box.Right && checkItemSweep.Box.Right >= tile.Box.Left && checkItemSweep.Box.Top <= tile.Box.Bottom && checkItemSweep.Box.Bottom >= tile.Box.Top)
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 {                  
                     Console.WriteLine("Left Item Collision");
                     newBox = new Rectangle(tile.Box.Left - 2 - tile.Box.Width, itemCheck.Box.Y, 40, 40);
                     itemCheck.Box = newBox;
                     return true;
                 }                                          
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
             }
             return false;
         }
@@ -1334,6 +1639,31 @@ namespace COSC438GameDesignNewREV
             Rectangle checkPlayerNewState = new Rectangle(checkX, checkY - gameObj.ActivePlayer.Height + yOffset, 40, 40);
             if (CollisionDetection(checkPlayerNewState))
             {
+=======
+            }
+            return false;
+        }
+        public bool SweepCollisionVertical()
+        {
+            //Need to implement sweeping detection to fix collision graph offsets              
+            int checkX = gameObj.currPlayerPositionFunc.X;
+            int checkY = gameObj.currPlayerPositionFunc.Y + (int)velocity.Y;                
+            Rectangle checkPlayerNewState = new Rectangle(checkX, checkY - gameObj.ActivePlayer.Height + yOffset, 40, 40);       
+            if (CollisionDetection(checkPlayerNewState))
+            {
+                    return true;
+            }
+            return false;     
+        }
+        public bool SweepCollisionHorizontal()
+        {
+            //Need to implement sweeping detection to fix collision graph offsets              
+            int checkX = gameObj.currPlayerPositionFunc.X + (int)velocity.X;
+            int checkY = gameObj.currPlayerPositionFunc.Y;                
+            Rectangle checkPlayerNewState = new Rectangle(checkX, checkY - gameObj.ActivePlayer.Height + yOffset, 40, 40);
+            if (CollisionDetection(checkPlayerNewState))
+            {
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 return true;
             }
             return false;
@@ -1378,10 +1708,17 @@ namespace COSC438GameDesignNewREV
             }           
             foreach (ItemTile tile in genMaps[ACTIVELEVEL].ItemTile)
             {
+<<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 //Right side collison with offsets at maximum velocity
                 if (checkPlayerNewState.Left >= tile.Box.Left && checkPlayerNewState.Left <= tile.Box.Right && checkPlayerNewState.Top <= tile.Box.Bottom - (gameObj.ActivePlayer.Height / 2 - 10) && checkPlayerNewState.Bottom >= tile.Box.Top + (gameObj.ActivePlayer.Width / 4))
                 {
                     gameObj.InventoryContainer[tile.ItemKey].Collected = true;
+=======
+                //Right side collison with offsets
+                if (checkPlayerNewState.Left >= tile.Box.Left && checkPlayerNewState.Left <= tile.Box.Right && checkPlayerNewState.Top <= tile.Box.Bottom - (gameObj.ActivePlayer.Height / 4) && checkPlayerNewState.Bottom >= tile.Box.Top + (gameObj.ActivePlayer.Height / 4))
+                {                  
+                        gameObj.InventoryContainer[tile.ItemKey].Collected = true;
+>>>>>>> origin/master:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                         tile.Collected = true;                                                    
                 }
                 //Left side collisions with offsets
