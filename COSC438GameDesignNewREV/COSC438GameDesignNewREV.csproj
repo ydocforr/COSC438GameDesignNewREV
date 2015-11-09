@@ -38,25 +38,43 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CollisionTile.cs" />
-    <Compile Include="CrackedTile.cs" />
-    <Compile Include="Game1.cs" />
-    <Compile Include="GridLayout.cs" />
-    <Compile Include="ItemTile.cs" />
-    <Compile Include="LadderTile.cs" />
-    <Compile Include="MapContainer.cs" />
-    <Compile Include="MiniGamePhysicsEngine.cs" />
-    <Compile Include="OhmDropTile.cs" />
-    <Compile Include="OhmTile.cs" />
-    <Compile Include="P1SpriteClass.cs" />
-    <Compile Include="Physics.cs" />
-    <Compile Include="PlatForm.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="GameEngineClasses\ItemCollision.cs" />
+    <Compile Include="GameEngineClasses\PlayerCollision.cs" />
+    <Compile Include="TileClasses\BackGroundTile.cs" />
+    <Compile Include="TileClasses\CaveTopTile.cs" />
+    <Compile Include="TileClasses\CollisionTile.cs" />
+    <Compile Include="TileClasses\CrackedTile.cs" />
+    <Compile Include="GameEngineClasses\Game1.cs" />
+    <Compile Include="LayoutClasses\GridLayout.cs" />
+    <Compile Include="TileClasses\CraneTile.cs" />
+    <Compile Include="TileClasses\DownBot.cs" />
+    <Compile Include="TileClasses\DownTop.cs" />
+    <Compile Include="TileClasses\HealthBarTile.cs" />
+    <Compile Include="TileClasses\InfoTile.cs" />
+    <Compile Include="TileClasses\InventoryDisplayTileItem.cs" />
+    <Compile Include="TileClasses\ItemTile.cs" />
+    <Compile Include="TileClasses\LadderTile.cs" />
+    <Compile Include="LayoutClasses\MapContainer.cs" />
+    <Compile Include="GameEngineClasses\MiniGamePhysicsEngine.cs" />
+    <Compile Include="TileClasses\PromptTile.cs" />
+    <Compile Include="TileClasses\SlipperyTile.cs" />
+    <Compile Include="TileClasses\OhmDropTile.cs" />
+    <Compile Include="TileClasses\OhmTile.cs" />
+    <Compile Include="PlayerClasses\P1SpriteClass.cs" />
+    <Compile Include="GameEngineClasses\Physics.cs" />
+    <Compile Include="TileClasses\PlatFormTile.cs" />
+    <Compile Include="GameEngineClasses\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShadedTile.cs" />
-    <Compile Include="SpikeTile.cs" />
-    <Compile Include="Tile.cs" />
-    <Compile Include="WireTile.cs" />
+    <Compile Include="TileClasses\ResourceTiles.cs" />
+    <Compile Include="TileClasses\ScoreTiles.cs" />
+    <Compile Include="TileClasses\ShadedTile.cs" />
+    <Compile Include="TileClasses\SingleSpikeTile.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="TileClasses\SpikeTile.cs" />
+    <Compile Include="TileClasses\SplitSpikeTile.cs" />
+    <Compile Include="TileClasses\Tile.cs" />
+    <Compile Include="TileClasses\WireTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -67,172 +85,181 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="Images\B.png">
+    <Content Include="Images\GeneralTileImages\BGTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\background.jpg">
+    <Content Include="Images\GeneralTileImages\Cracked.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Battery.png">
+    <Content Include="Images\GeneralTileImages\DownBot.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CaveTop.png">
+    <Content Include="Images\GeneralTileImages\DownTop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Cracked.png">
+    <Content Include="Images\GeneralTileImages\SlipperyTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Crane.png">
+    <Content Include="Images\GeneralTileImages\PlatForm.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CraneLvl.png">
+    <Content Include="Images\GeneralTileImages\CaveTopTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\cursorDummyActive.png">
+    <Content Include="Images\GeneralTileImages\SpikeTileLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\cursorSprite.png">
+    <Content Include="Images\GeneralTileImages\SpikeTileRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\DangerZone.png">
+    <Content Include="Images\GeneralTileImages\SpikeTileUp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\DarkBG.png">
+    <Content Include="Images\GUIImages\ControlsMenu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Down.png">
+    <Content Include="Images\GUIImages\CurrentlyOutofOrderMenu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\exit.jpg">
+    <Content Include="Images\GUIImages\DangerZoneMenu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\FirstAid.png">
+    <Content Include="Images\GUIImages\DeathScreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\FirstAidINBag.png">
+    <Content Include="Images\GUIImages\InfoButton.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\FlashLight.png">
+    <Content Include="Images\GUIImages\InfoScreenLevel1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\HealthGreen.png">
+    <Content Include="Images\GUIImages\InfoScreenLevel2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\HealthRed.png">
+    <Content Include="Images\GUIImages\InventoryLocationTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\I1.png">
+    <Content Include="Images\GUIImages\LoadingScreen.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\I1Bag.png">
+    <Content Include="Images\GUIImages\Mprompt.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\I2.png">
+    <Content Include="Images\GUIImages\PauseMenu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\I2BAG.png">
+    <Content Include="Images\GUIImages\StartMenu.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\interactionPrompt.png">
+    <Content Include="Images\GeneralTileImages\Ladder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Inventory.png">
+    <Content Include="Images\ItemImages\Battery.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Ladder.png">
+    <Content Include="Images\ItemImages\FlashLight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LoadingScreen.png">
+    <Content Include="Images\ItemImages\MedKitTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LoadScreen.jpg">
+    <Content Include="Images\ItemImages\MiningAxe.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LVL0.png">
+    <Content Include="Images\ItemImages\EngineerToolKit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Lvl1.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LvL2.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_02.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LVL3.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_03.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LVL4.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_05.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\LVL5.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_06.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\120OhmRed.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_07.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\1500OhmGreen.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_08.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\1500OhmRed.png">
+    <Content Include="Images\MiniGameCaveEventTileImages\SingleSpikeTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\150OhmGreen.png">
+    <Content Include="Images\MiniGameCaveEventTileImages\SplitSpikeTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\15OhmGreen.png">
+    <Content Include="Images\MiniGameTileImages\120OhmRed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\2.2OhmGreen.png">
+    <Content Include="Images\MiniGameTileImages\1500OhmGreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\2.2OhmRed.png">
+    <Content Include="Images\MiniGameTileImages\1500OhmRed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\2.2OhmYellow.png">
+    <Content Include="Images\MiniGameTileImages\150OhmGreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\240OhmRed.png">
+    <Content Include="Images\MiniGameTileImages\15OhmGreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\240V.png">
+    <Content Include="Images\MiniGameTileImages\2.2OhmGreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\270OhmYellow.png">
+    <Content Include="Images\MiniGameTileImages\2.2OhmRed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\470OhmYellow.png">
+    <Content Include="Images\MiniGameTileImages\2.2OhmYellow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\47OhmYellow.png">
+    <Content Include="Images\MiniGameTileImages\240OhmRed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\480V.png">
+    <Content Include="Images\MiniGameTileImages\240V.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\600V.png">
+    <Content Include="Images\MiniGameTileImages\270OhmYellow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\Check.png">
+    <Content Include="Images\MiniGameTileImages\470OhmYellow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\GreenWire.png">
+    <Content Include="Images\MiniGameTileImages\47OhmYellow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\OhmDropTile.png">
+    <Content Include="Images\MiniGameTileImages\480V.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\Range.png">
+    <Content Include="Images\MiniGameTileImages\600V.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\RedWire.png">
+    <Content Include="Images\MiniGameTileImages\Check.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\X.png">
+    <Content Include="Images\MiniGameTileImages\GreenWire.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\MiniGameTiles\YellowWire.png">
+    <Content Include="Images\MiniGameTileImages\OhmDropTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\orb.jpg">
+    <Content Include="Images\MiniGameTileImages\Range.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MiniGameTileImages\RedWire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MiniGameTileImages\X.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MiniGameTileImages\YellowWire.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\P1.png">
@@ -247,28 +274,49 @@
     <Content Include="Images\P4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Pause.jpg">
+    <Content Include="Images\GeneralTileImages\ShadedTile.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\PlatForm.png">
+    <Content Include="Images\ResourceImages\BurstBar_01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Resume.jpg">
+    <Content Include="Images\ResourceImages\BurstBar_02.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\ShadedTile.png">
+    <Content Include="Images\ResourceImages\BurstBar_03.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Spike.png">
+    <Content Include="Images\LVL2Resources\CraneFiller_04.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\start.jpg">
+    <Content Include="Images\ScoreTileImages\HealthGreen_01.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\StartScreen.png">
+    <Content Include="Images\ScoreTileImages\HealthGreen_02.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Up.png">
+    <Content Include="Images\ScoreTileImages\HealthGreen_03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthGreen_04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthGreen_05.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthRed_01.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthRed_02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthRed_03.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthRed_04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ScoreTileImages\HealthRed_05.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
