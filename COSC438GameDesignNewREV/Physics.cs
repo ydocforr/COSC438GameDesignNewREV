@@ -360,6 +360,11 @@ namespace COSC438GameDesignNewREV
             {
                 velocity.Y = 1f;
             }
+            if(jumpState == true){
+                spriteSourceY = 80;
+            }else{
+                spriteSourceY = 0;
+            }
         }
         //All Keyboard input will be processed here
         public void CheckKeyBoardInput()
@@ -374,11 +379,13 @@ namespace COSC438GameDesignNewREV
             else if (checKeyBoardState.IsKeyDown(Keys.D))
             {
                 velocity.X = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 5;
+                spriteSourceX = 0;
             }
             //Left Movement Controlled by A
             else if (checKeyBoardState.IsKeyDown(Keys.A))
             {
                 velocity.X = -(float)gameTime.ElapsedGameTime.TotalMilliseconds / 5;
+                spriteSourceX = 40;
             }
             else
             {
