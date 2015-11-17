@@ -37,6 +37,7 @@ namespace COSC438GameDesignNewREV
         private Dictionary<int, ItemTile> inventoryContainer;
         //Dynamic sprites
         private Texture2D activePlayer;
+        private int spriteSourceX, spriteSourceY;
         private Texture2D cursorDummy;
         private Texture2D inventory;
         private Texture2D darkbg;
@@ -206,6 +207,7 @@ namespace COSC438GameDesignNewREV
         //TODO Do we need this for our game? :/
         protected override void UnloadContent()
         {
+            Content.Unload();
         }
         /* TODO
         2.) Implement Character Switching Method
@@ -226,7 +228,7 @@ namespace COSC438GameDesignNewREV
             drawSprites();
             //Load mouse and player sprites
             spriteBatch.Draw(activePlayer, new Rectangle(currPlayerPosition.X, currPlayerPosition.Y - ActivePlayer.Height, ActivePlayer.Width, ActivePlayer.Height), Color.White);
-            spriteBatch.Draw(cursorDummy, new Rectangle(currMousePosition.X, currMousePosition.Y, 15, 15), Color.White);
+            spriteBatch.Draw(cursorDummy, new Rectangle(currMousePosition.X, currMousePosition.Y, 15, 15), new Rectangle(spriteSourceX, spriteSourceY, 40, 80), Color.White);
             //When inventory button is held down draw the inventory bag to the screen
             if(physicsEngine.IDOWNFunc)
             {
