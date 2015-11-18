@@ -53,7 +53,10 @@ namespace COSC438GameDesignNewREV
         private Vector2 sButtonPos;
         private Vector2 eButtonPos;
         private Vector2 rButtonPos;
-        private Vector2 controlButtonPos;    
+        private Vector2 controlButtonPos;
+        //Sprite attributes
+        private int spriteSourceX;
+        private int spriteSourceY;
         //Dimensions
         private const float oWidth = 50f;
         private const float oHeight = 50f;
@@ -536,6 +539,8 @@ namespace COSC438GameDesignNewREV
             }           
             mouseState = Mouse.GetState();
             prevMouseState = mouseState;
+            spriteSourceX = 0;
+            spriteSourceY = 0;
             base.Initialize();
         }
         protected override void LoadContent()
@@ -640,7 +645,7 @@ namespace COSC438GameDesignNewREV
                 drawSprites();
                // drawActiveSprites();            
                 //Load mouse and player sprites
-                spriteBatch.Draw(activePlayer, new Rectangle(currPlayerPosition.X, currPlayerPosition.Y - ActivePlayer.Height, ActivePlayer.Width, ActivePlayer.Height), Color.White);
+                spriteBatch.Draw(activePlayer, new Rectangle(currPlayerPosition.X, currPlayerPosition.Y - ActivePlayer.Height, ActivePlayer.Width, ActivePlayer.Height), new Rectangle(spriteSourceX, spriteSourceY, 40, 80), Color.White);
                 //spriteBatch.Draw(cursorDummyPassive, new Rectangle(currMousePosition.X, currMousePosition.Y, 15, 15), Color.White);
                 //When inventory button is held down draw the inventory bag to the screen
                 /*
