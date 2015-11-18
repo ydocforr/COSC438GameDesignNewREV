@@ -727,6 +727,7 @@ namespace COSC438GameDesignNewREV
             //Right Movement Controlled By D
             else if (checKeyBoardState.IsKeyDown(Keys.D))
             {
+                gameObj.spriteSourceX = 0;
                 characterFacing = CharDirection.Right;
 <<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (ACTIVELEVEL == 6 && activePlayer == ActivePlayer.Miner)
@@ -744,6 +745,7 @@ namespace COSC438GameDesignNewREV
             //Left Movement Controlled by A
             else if (checKeyBoardState.IsKeyDown(Keys.A))
             {
+                gameObj.spriteSourceX = 40;
                 characterFacing = CharDirection.Left;
 <<<<<<< HEAD:COSC438GameDesignNewREV/GameEngineClasses/Physics.cs
                 if (ACTIVELEVEL == 6 && activePlayer == ActivePlayer.Miner)
