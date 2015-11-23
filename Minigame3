@@ -14,10 +14,12 @@ namespace Minigame3
         Texture2D map, mouseTexture, bill;
         Vector2 mouseXY, objectXY;
 
-        Rectangle[] getrect;
-        float[] rotationCounter;
-        int margin;
-        int numberOfPieces;
+        private Rectangle[] getrect;
+        private float[] rotationCounter;
+        private int margin;
+        private int numberOfPieces;
+        private int sandwichBezel;
+        private int sideBezel;
 
         bool explanationVisibility;
 
@@ -49,7 +51,9 @@ namespace Minigame3
             spriteBatch = new SpriteBatch(GraphicsDevice);
             map = Content.Load<Texture2D>("mapdelveDOTcomSLASHimagesSLASHtunnels2");
             mouseTexture = Content.Load<Texture2D>("cursor");
-
+    
+            sandwichBezel = 0;
+            sideBezel = 0;
             margin = 5;
             numberOfPieces = 7;
             //if(ActivePlayerz != Foreman) numberOfPieces *= numberOfPieces;
@@ -103,7 +107,7 @@ namespace Minigame3
             //for all rectangles, check if clickage within
             for (int i = 0; i < numberOfPieces; i++)
             {
-                if (new Rectangle((i*map.Width/20/numberOfPieces)+(i-1)*margin, 0, map.Width/20/numberOfPieces, map.Height/20).Contains(mouseXY) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (new Rectangle(sideBezel + (i*map.Width/20/numberOfPieces)+(i-1)*margin, 0, map.Width/20/numberOfPieces, sandwichBezel + map.Height/20).Contains(mouseXY) && Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     rotationCounter[i] = (rotationCounter[i] + MathHelper.Pi)%(MathHelper.Pi*2);
                 }
@@ -125,11 +129,9 @@ namespace Minigame3
             spriteBatch.Begin();
             //the origin vector parameter works relative to the cropped image, but scale is...?? applied after the fact?
             //destination vector reflects where origin, not (0,0), lies
-            //spriteBatch.Draw(map, new Vector2(87.5f, 175f), getrect[0], Color.White, rotationCounter[0], new Vector2(map.Width/4, map.Height/2), .05f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(map, new Vector2(180f+87.5f, 175f), getrect[1], Color.White, rotationCounter[1], new Vector2(map.Width/4, map.Height/2), .05f, SpriteEffects.None, 0f);
-
+            
             for(int i=0; i<numberOfPieces;i++){
-                spriteBatch.Draw(map, new Vector2((i*(map.Width/20)/numberOfPieces)+(i-1)*margin+map.Width/20/numberOfPieces/2, map.Height/20/2), getrect[i], Color.White, rotationCounter[i], new Vector2(map.Width/numberOfPieces/2, map.Height/2), .05f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(map, new Vector2(sideBezel + (i*(map.Width/20)/numberOfPieces)+(i-1)*margin+map.Width/20/numberOfPieces/2, sandwichBezel + map.Height/20/2), getrect[i], Color.White, rotationCounter[i], new Vector2(map.Width/numberOfPieces/2, map.Height/2), .05f, SpriteEffects.None, 0f);
             }
 
             spriteBatch.Draw(mouseTexture, mouseXY, new Rectangle(0, 0, mouseTexture.Width, mouseTexture.Height), Color.White);
