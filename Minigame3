@@ -56,7 +56,7 @@ namespace Minigame3
             sideBezel = 0;
             margin = 5;
             numberOfPieces = 7;
-            //if(ActivePlayerz != Foreman) numberOfPieces *= numberOfPieces;
+            //if(Physics.activePlayer != Physics.ActivePlayerz.Foreman) numberOfPieces *= numberOfPieces;
             getrect = new Rectangle[numberOfPieces];
             rotationCounter = new float[numberOfPieces];
             for(int i = 0; i<numberOfPieces; i++){
