@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/crane.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/electric.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/jump.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/medicine.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/Pickaxe.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/RockSlide.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/Music.wma</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/rockFall.wav</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/BurstSound.mp3</File>
+    <File>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/BackgroundMusic.mp3</File>
+  </SourceFiles>
+</SourceFileCollection>
