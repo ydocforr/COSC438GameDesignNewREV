@@ -52,6 +52,7 @@ namespace Minigame3
 
             margin = 5;
             numberOfPieces = 7;
+            //if(ActivePlayerz != Foreman) numberOfPieces *= numberOfPieces;
             getrect = new Rectangle[numberOfPieces];
             rotationCounter = new float[numberOfPieces];
             for(int i = 0; i<numberOfPieces; i++){
@@ -60,7 +61,7 @@ namespace Minigame3
             }
 
             bill = Content.Load<Texture2D>("bill");
-            explanationVisibility = false;
+            explanationVisibility = false;nu
             objectXY = new Vector2(400, 200);
 
             // TODO: use this.Content to load your game content here
