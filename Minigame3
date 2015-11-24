@@ -1,27 +1,29 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace Minigame3
 {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
+    
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D map, mouseTexture, bill;
         Vector2 mouseXY, objectXY;
+        ButtonState previousState;
 
-        private Rectangle[] getrect;
-        private float[] rotationCounter;
-        private int margin;
-        private int numberOfPieces;
-        private int sandwichBezel;
-        private int sideBezel;
-
-        bool explanationVisibility;
+        Rectangle[] getrect; //source rectangles within map.png
+        private int margin; //how much space bw strips
+        private int sideBezel; //how much space bw game and frame
+        private int sandwichBezel;//same
+        private int numberOfPieces; //how many strips of map
+        private float[] rotationCounter; //how far a piece has been rotated, mod 2pi
+        private bool explanationVisibility;
 
         public Game1()
         {
@@ -37,8 +39,20 @@ namespace Minigame3
         /// </summary>
         protected override void Initialize()
         {
+            
             // TODO: Add your initialization logic here
             base.Initialize();
+
+        }
+
+        //are all the pieces of the puzzle in the right position?
+        private bool rightSideUp()
+        {
+            foreach (float f in rotationCounter)
+            {
+                if (f > 0f) return false;
+            }
+            return true;   
         }
 
         /// <summary>
@@ -51,22 +65,21 @@ namespace Minigame3
             spriteBatch = new SpriteBatch(GraphicsDevice);
             map = Content.Load<Texture2D>("mapdelveDOTcomSLASHimagesSLASHtunnels2");
             mouseTexture = Content.Load<Texture2D>("cursor");
-    
-            sandwichBezel = 0;
-            sideBezel = 0;
-            margin = 5;
-            numberOfPieces = 7;
-            //if(Physics.activePlayer != Physics.ActivePlayerz.Foreman) numberOfPieces *= numberOfPieces;
-            getrect = new Rectangle[numberOfPieces];
-            rotationCounter = new float[numberOfPieces];
-            for(int i = 0; i<numberOfPieces; i++){
-                getrect[i] = new Rectangle(i*map.Width/numberOfPieces, 0, map.Width/numberOfPieces, map.Height);
-                rotationCounter[i] = 0;
-            }
 
             bill = Content.Load<Texture2D>("bill");
-            explanationVisibility = false;nu
+            explanationVisibility = false;
             objectXY = new Vector2(400, 200);
+
+            margin = 5;
+            numberOfPieces = 7;
+            getrect = new Rectangle[numberOfPieces];
+            rotationCounter = new float[numberOfPieces];
+            Random rand = new Random();
+            for (int i = 0; i < numberOfPieces; i++)
+            {
+                getrect[i] = new Rectangle(i * map.Width / numberOfPieces, 0, map.Width / numberOfPieces, map.Height);
+                rotationCounter[i] += (MathHelper.Pi * rand.Next(2));
+            }
 
             // TODO: use this.Content to load your game content here
         }
@@ -89,7 +102,6 @@ namespace Minigame3
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             // TODO: Add your update logic here
             mouseXY = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
             
@@ -107,13 +119,13 @@ namespace Minigame3
             //for all rectangles, check if clickage within
             for (int i = 0; i < numberOfPieces; i++)
             {
-                if (new Rectangle(sideBezel + (i*map.Width/20/numberOfPieces)+(i-1)*margin, 0, map.Width/20/numberOfPieces, sandwichBezel + map.Height/20).Contains(mouseXY) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (new Rectangle((i * map.Width / 20 / numberOfPieces) + (i - 1) * margin, 0, map.Width / 20 / numberOfPieces, map.Height / 20).Contains(mouseXY) && (Mouse.GetState().LeftButton == ButtonState.Released && previousState == ButtonState.Pressed)) 
                 {
                     rotationCounter[i] = (rotationCounter[i] + MathHelper.Pi)%(MathHelper.Pi*2);
                 }
             }
-            
-            
+
+            previousState = Mouse.GetState().LeftButton;
             base.Update(gameTime);
         }
 
@@ -123,15 +135,15 @@ namespace Minigame3
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Purple);
+            if (rightSideUp()==true) { GraphicsDevice.Clear(Color.Black); } else { GraphicsDevice.Clear(Color.Purple); };
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             //the origin vector parameter works relative to the cropped image, but scale is...?? applied after the fact?
             //destination vector reflects where origin, not (0,0), lies
-            
+
             for(int i=0; i<numberOfPieces;i++){
-                spriteBatch.Draw(map, new Vector2(sideBezel + (i*(map.Width/20)/numberOfPieces)+(i-1)*margin+map.Width/20/numberOfPieces/2, sandwichBezel + map.Height/20/2), getrect[i], Color.White, rotationCounter[i], new Vector2(map.Width/numberOfPieces/2, map.Height/2), .05f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(map, new Vector2((i*(map.Width/20)/numberOfPieces)+(i-1)*margin+map.Width/20/numberOfPieces/2, map.Height/20/2), getrect[i], Color.White, rotationCounter[i], new Vector2(map.Width/numberOfPieces/2, map.Height/2), .05f, SpriteEffects.None, 0f);
             }
 
             spriteBatch.Draw(mouseTexture, mouseXY, new Rectangle(0, 0, mouseTexture.Width, mouseTexture.Height), Color.White);
@@ -144,3 +156,4 @@ namespace Minigame3
         }
     }
 }
+
