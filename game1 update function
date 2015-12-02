@@ -1,0 +1,45 @@
+ protected override void Update(GameTime gameTime)
+        {
+            keyState = Keyboard.GetState();
+            //new
+            if (gameState == GameState.Loading && !isLoading&& physicsEngine.ACTIVELEVELFunc==1)
+            {
+                cavein.Play();
+            }
+	  //new
+                if (gameState == GameState.Loading && !isLoading)
+            {
+                backgroundThread = new Thread(LoadGame);
+                isLoading = true;
+                backgroundThread.Start();
+                
+            }
+            mouseState = Mouse.GetState();           
+            if (prevMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+            {              
+                MouseClicked(mouseState.X, mouseState.Y);
+            }
+            prevMouseState = mouseState;
+            if(gameState == GameState.Playing && isLoading)
+            {
+                LoadGame();
+                isLoading = false;                           
+            }            
+            if (gameState == GameState.Playing)
+            {
+                if (keyState.IsKeyDown(Keys.P))
+                {
+                    prevGameState = GameState.Playing;
+                    gameState = GameState.Paused;
+                }
+                //Runs all methods relted to handling user input events.
+                //ProcessInputFunctions has a chaining effect to all other detections
+                playerBox = new Rectangle(currPlayerPosition.X, currPlayerPosition.Y, activePlayer.Width, activePlayer.Height);
+                physicsEngine.ProcessInputFunctions(Mouse.GetState(), Keyboard.GetState(), gameTime);
+                if (keyState.IsKeyDown(Keys.Space))
+                {
+                    jumpSound.Play();
+                }
+            }                       
+            base.Update(gameTime);
+        }

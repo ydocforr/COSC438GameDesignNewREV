@@ -1,0 +1,151 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Engineer_mini_game
+{
+    /// <summary>
+    /// This is the main type for your game.
+    /// </summary>
+    public class Game1 : Game
+    {
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        Texture2D[] panel;
+        int[,] arr;
+        Point tileDimensions;
+        Texture2D solution;
+        Texture2D one;
+        Texture2D two;
+        Texture2D three;
+        Texture2D five;
+        Texture2D question;
+        Texture2D eight;
+        Texture2D thirteen;
+        Texture2D twentyfour;
+        public Game1()
+        {
+            graphics = new GraphicsDeviceManager(this);
+            Content.RootDirectory = "Content";
+        }
+
+    
+        /// <summary>
+        /// Allows the game to perform any initialization it needs to before starting to run.
+        /// This is where it can query for any required services and load any non-graphic
+        /// related content.  Calling base.Initialize will enumerate through any components
+        /// and initialize them as well.
+        /// </summary>
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+            base.Initialize();
+             panel = new Texture2D[9];
+             arr = new int[,]{
+            {1,1,2},
+            {3,4,5},
+            {0,0,0},
+            {6,7,8}
+        };
+           
+       
+        }
+        
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
+        {
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+     
+     //creating the panels
+                one = Content.Load<Texture2D>("one");
+                two = Content.Load<Texture2D>("two");
+                three = Content.Load<Texture2D>("three");
+                five = Content.Load<Texture2D>("five");
+                question = Content.Load<Texture2D>("question");
+                eight = Content.Load<Texture2D>("eight");//solution
+                thirteen = Content.Load<Texture2D>("thirteen");
+               twentyfour = Content.Load<Texture2D>("twenty-four");
+
+                panel[1] = this.one;
+                panel[2] = this.two;
+                panel[3] = this.three;
+                panel[4] = this.five;
+                panel[5] = this.question;
+                panel[6] = this.eight;
+                panel[7] = this.thirteen;
+                panel[8] = this.twentyfour;
+
+                tileDimensions = new Point(panel[1].Width, panel[1].Height);
+                solution = panel[6];
+            // TODO: use this.Content to load your game content here
+        }
+
+        /// <summary>
+        /// UnloadContent will be called once per game and is the place to unload
+        /// game-specific content.
+        /// </summary>
+        protected override void UnloadContent()
+        {
+            // TODO: Unload any non ContentManager content here
+          
+        }
+        
+        /// <summary>
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+                
+                //should be happy when the correct solution is clicked
+           //if( Mouse.GetState().LeftButton == ButtonState.Pressed)
+              // if (MouseState.Equals(solution)==true)
+            // TODO: Add your update logic here
+
+            base.Update(gameTime);
+            
+        }
+
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+          
+
+for (int y = 0; y < arr.GetLength(0); y++) //map.GetLength(0) gives us the number of rows
+{
+
+    for (int x = 0; x < arr.GetLength(1); x++) //map.GetLength(1) gives is the number of columns
+    {
+//Draws the grid of number tiles 
+        Vector2 position = new Vector2(tileDimensions.X * x, tileDimensions.Y * y);
+
+        int textureIndex = arr[y, x]; //Get the int value of the element at x,y in the map array
+
+        Texture2D texture = panel[textureIndex];
+       
+        
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(texture, position, Color.Chocolate);
+            spriteBatch.End();
+      
+    }
+}
+
+ 
+
+            base.Draw(gameTime);
+        }
+    }
+}
