@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/crane.wav</SourceFile>
-  <SourceTime>2015-11-22T15:22:05.5576105-05:00</SourceTime>
-  <DestFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/bin/Windows/crane.xnb</DestFile>
-  <DestTime>2015-11-22T15:23:01.1884697-05:00</DestTime>
+  <SourceFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438GameDesignNewREV/COSC438AMinerProblem/Content/crane.wav</SourceFile>
+  <SourceTime>2015-12-12T03:11:03.9532599-05:00</SourceTime>
+  <DestFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438GameDesignNewREV/COSC438AMinerProblem/Content/bin/Windows/crane.xnb</DestFile>
+  <DestTime>2015-12-12T03:36:24.7281565-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

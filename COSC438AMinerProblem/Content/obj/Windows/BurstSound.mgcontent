@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/BurstSound.mp3</SourceFile>
-  <SourceTime>2015-11-22T15:22:05.4990167-05:00</SourceTime>
-  <DestFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438AMinerProblem/Content/bin/Windows/BurstSound.xnb</DestFile>
-  <DestTime>2015-11-22T15:23:04.0195244-05:00</DestTime>
+  <SourceFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438GameDesignNewREV/COSC438AMinerProblem/Content/BurstSound.mp3</SourceFile>
+  <SourceTime>2015-12-12T03:11:03.7527844-05:00</SourceTime>
+  <DestFile>C:/Users/Cod/Desktop/COSC438AMinerProblemContainer/COSC438AMinerProblem/COSC438GameDesignNewREV/COSC438AMinerProblem/Content/bin/Windows/BurstSound.xnb</DestFile>
+  <DestTime>2015-12-12T03:36:27.9305431-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
